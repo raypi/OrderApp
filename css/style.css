@@ -47,6 +47,14 @@ footer {
 }
 
 
+.mealNameDiv {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-right:  16px;
+}
+
+
 .maelWrapper {
     display: flex;
 }
@@ -69,4 +77,40 @@ footer {
     position: relative;
     position: sticky;
     top: 0;
+}
+
+
+
+.chartHeader {
+    text-align: center;
+}
+
+.chartBtn {
+    height: 16px;
+    width: 16px;
+
+}
+
+.mealInChart {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+
+.subtotal {
+    display: flex;
+    justify-content: space-between;
+}
+
+
+.deliverycosts {
+    display: flex;
+    justify-content: space-between;
+}
+
+
+.total {
+    display: flex;
+    justify-content: space-between;
 }
