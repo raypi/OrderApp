@@ -23,10 +23,9 @@ footer {
 }
 
 .mainImg {
-    
     object-fit: cover;
     height: 150px;
-    width: 1260px;
+    width: 100%;
 }
 
 
@@ -37,4 +36,37 @@ footer {
     height: 32px;
     display: flex;
     align-items: center;
+}
+
+
+.maelDiv {
+    border-style: solid;
+    border-color: gray;
+    border-radius: 8px;
+    margin: 0 4px 8px 4px;
+}
+
+
+.maelWrapper {
+    display: flex;
+}
+
+
+.maelsGalerySec {
+    width: calc(100% - 300px);
+}
+
+
+.chartWrapper {
+    width: 300px;
+    flex-grow: 1;
+    padding: 16px;
+}
+
+
+.chart {
+    width: 100%;
+    position: relative;
+    position: sticky;
+    top: 0;
 }
