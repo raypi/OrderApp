@@ -1,0 +1,40 @@
+body {
+    margin: 0;
+}
+
+
+header {
+    background-color: orange;
+    display: flex;
+    justify-content: space-between;
+}
+
+
+footer {
+    background-color: orange;
+    height: 32px;
+    text-align: center; 
+}
+
+.imgHeader{
+    margin: 16px;
+    height: 32px;
+    width: auto;
+}
+
+.mainImg {
+    
+    object-fit: cover;
+    height: 150px;
+    width: 1260px;
+}
+
+
+.footMenu {
+    background-color: lightgray;
+    color: black;
+    font-size: 16px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+}
