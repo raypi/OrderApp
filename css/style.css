@@ -8,7 +8,9 @@
 
 :root {
     --backgroundColorOrange: orange;
+    --backgroundColorGray: gray;
 }  
+
 
 body {
     margin: 0;
@@ -24,15 +26,19 @@ header {
 
 footer {
     background-color: var(--backgroundColorOrange);
-    height: 32px;
+    height: 64px;
     text-align: center; 
+    display: flex;
+    align-items: center;
 }
+
 
 .imgHeader{
     margin: 16px;
     height: 32px;
     width: auto;
 }
+
 
 .mainImg {
     object-fit: cover;
@@ -48,6 +54,10 @@ footer {
     height: 32px;
     display: flex;
     align-items: center;
+    border-style: solid;
+    border-color: lightgray;
+    border-radius: 8px;
+    margin: 0 4px 8px 4px;
 }
 
 
@@ -92,16 +102,17 @@ footer {
 }
 
 
-
 .chartHeader {
     text-align: center;
 }
+
 
 .chartBtn {
     height: 16px;
     width: 16px;
 
 }
+
 
 .mealInChart {
     display: flex;
@@ -138,4 +149,12 @@ footer {
     border-width: 2px;
     font-size: 16px;
     font-weight: 700;
+}
+
+
+.separator {
+    background-color: var(--backgroundColorGray);
+    width: auto;
+    height: 4px;
+    margin-bottom: 8px;
 }
