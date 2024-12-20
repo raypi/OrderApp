@@ -1,11 +1,3 @@
-/* :root {
-    --blue: #1e90ff;
-    --white: #ffffff; 
-  }
-  
-  body { background-color: var(--blue); } */
-
-
 :root {
     --backgroundColorOrange: orange;
     --backgroundColorGray: gray;
@@ -27,8 +19,8 @@ header {
 footer {
     background-color: var(--backgroundColorOrange);
     height: 64px;
-    text-align: center; 
     display: flex;
+    justify-content: center;
     align-items: center;
 }
 
@@ -44,8 +36,7 @@ footer {
     position: relative; /* ermöglicht Logo relativ zum Div zu positionieren */
     width: 100%;
     height: 150px;
-    overflow: hidden;
-    margin-bottom: 32px; /* versuch Logo sichtbar zu machen*/
+    margin-bottom: 0px; /* versuch Logo sichtbar zu machen*/
 }
 
 
@@ -60,7 +51,7 @@ footer {
     position: absolute; /* sorgt für Positionierung übder img */
     top: 70%; 
     left: 50%;
-    transform: translate(-50%, 0%); 
+    transform: translate(-50%, 8%); 
 }
 
 
@@ -69,11 +60,6 @@ footer {
     height: auto;
     filter: invert(1); /* weiss wird zu schwarz */
 }
-
-
-/* .companyData {
-    position: absolute;
-} */
 
 
 .footMenu {
