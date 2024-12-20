@@ -40,11 +40,40 @@ footer {
 }
 
 
+.maelHeader {
+    position: relative; /* ermöglicht Logo relativ zum Div zu positionieren */
+    width: 100%;
+    height: 150px;
+    overflow: hidden;
+    margin-bottom: 32px; /* versuch Logo sichtbar zu machen*/
+}
+
+
 .mainImg {
     object-fit: cover;
-    height: 150px;
+    height: 100%;
     width: 100%;
 }
+
+
+.logoDiv {
+    position: absolute; /* sorgt für Positionierung übder img */
+    top: 70%; 
+    left: 50%;
+    transform: translate(-50%, 0%); 
+}
+
+
+.logoMain {
+    width: 200px;
+    height: auto;
+    filter: invert(1); /* weiss wird zu schwarz */
+}
+
+
+/* .companyData {
+    position: absolute;
+} */
 
 
 .footMenu {
