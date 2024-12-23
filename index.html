@@ -4,12 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="./script/tamplate.js"></script>
+    <script src="./script/database.js"></script>
     <script src="./script/script.js"></script>
     <link rel="stylesheet" href="./css/style.css">
     <link rel="icon" href="favicon.ico" sizes="48x48">
     <title>Order App</title>
 </head>
-<body>
+<body onload="init()">
     <header>
         <img class="imgHeader" src="./img/Logo.png" alt="Logo von Lieferdfienst">
         <img class="imgHeader" src="./img/menu_BTN_whithe.png" alt="Button vom Menue">
@@ -30,51 +31,8 @@
                 <div class="footMenu">
                     <p>Gerichte</p>
                 </div>
-                <div class="maelDiv">
-                    <div class="mealNameDiv">
-                        <p>Maelname</p>
-                        <img class="chartBtn" src="./img/plus.png" alt="button für mehr gerichte">
-                    </div>
-                    <p>Maeldescription</p>
-                    <p>price</p> 
+                <div id="mealsOverview" >                   
                 </div>
-
-                <div class="maelDiv">
-                    <p>Maelname</p>
-                    <p>Maeldescription</p>
-                    <p>price</p> 
-                </div>
-
-                <div class="maelDiv">
-                    <p>Maelname</p>
-                    <p>Maeldescription</p>
-                    <p>price</p> 
-                </div>
-
-                <div class="maelDiv">
-                    <p>Maelname</p>
-                    <p>Maeldescription</p>
-                    <p>price</p> 
-                </div>
-
-                <div class="maelDiv">
-                    <p>Maelname</p>
-                    <p>Maeldescription</p>
-                    <p>price</p> 
-                </div>
-
-                <div class="maelDiv">
-                    <p>Maelname</p>
-                    <p>Maeldescription</p>
-                    <p>price</p> 
-                </div>
-
-                <div class="maelDiv">
-                    <p>Maelname</p>
-                    <p>Maeldescription</p>
-                    <p>price</p> 
-                </div>
-                   
             </section>
             <section class="chartWrapper">
                 <div class="chart">
