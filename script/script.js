@@ -36,6 +36,7 @@ function renderMeals() {
                             id="${category}-${index}" 
                             src="./img/plus.png" 
                             alt="button für mehr gerichte"
+                             onclick="addCartItem('${category}', ${index})"
                         >
                     </div>
                     <p>${meal.description}</p>
@@ -47,4 +48,31 @@ function renderMeals() {
 
     // Den vorbereiteten HTML-String in den Container einfügen
     mealsContainer.innerHTML = mealsHTML;
+}
+
+
+// Funktion um aus der Übersicht der Gerichte in den Warenkorb zu verschieben
+function addCartItem(category, index) {
+    // Zugriff auf das Gericht basierend auf Kategorie und Index
+    const meal = meals[0][category][index];
+
+    // Prüfen, ob der Amount 0 ist (nicht im Warenkorb)
+    if (meal.amount === 0) {
+        meal.amount = 1; // Hinzufügen zum Warenkorb
+        console.log(`${meal.name} wurde dem Warenkorb hinzugefügt.`);
+    } else {
+        // Amount erhöhen, wenn es bereits im Warenkorb ist
+        meal.amount += 1;
+        console.log(`Die Menge von ${meal.name} wurde auf ${meal.amount} erhöht.`);
+    }
+
+    // Details des Gerichts ausgeben
+    console.log("Details des ausgewählten Gerichts:");
+    console.log(`Gericht: ${meal.name}`);
+    console.log(`Beschreibung: ${meal.description}`);
+    console.log(`Preis: ${meal.price.toFixed(2)} €`);
+    console.log(`Anzahl: ${meal.amount}`);
+
+    // Aufgabe: Rendern des Warenkorbs
+    //updateCartDisplay();
 }
