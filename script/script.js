@@ -104,10 +104,8 @@ function reduceMeal(category, index) {
 
     if (meal.amount > 0) {
         meal.amount -= 1;
-        console.log(`${meal.name}: Menge auf ${meal.amount} reduziert.`);
-
+        
         if (meal.amount === 0) {
-            console.log(`${meal.name} wurde aus dem Warenkorb entfernt.`);
         }
     }
 
@@ -160,7 +158,6 @@ function updateInvoiceData(hasItems) {
     const invoiceData = document.getElementById('invoiceData');
 
     if (!hasItems) {
-        invoiceData.innerHTML = `<p>Der Warenkorb ist leer.</p>`;
         return;
     }
 
@@ -170,8 +167,11 @@ function updateInvoiceData(hasItems) {
     invoiceData.innerHTML = `
         <div>
             <p>Netto: ${netTotal} €</p>
-            <p>Lieferpauschale: ${invoice.shippingCost === "0.00" ? "Kostenlos" : `${invoice.shippingCost} €`}</p>
+            <p>Lieferung: ${invoice.shippingCost === "0.00" ? "gratis" : `${invoice.shippingCost} €`}</p>
             <p><strong>Gesamtpreis: ${invoice.total} €</strong></p>
+        </div>
+        <div>
+        <button id="orderBtn">bestellen</button>
         </div>
     `;
 }
