@@ -172,7 +172,7 @@ function updateInvoiceData(hasItems) {
             <p><strong>Gesamtpreis: ${invoice.total} €</strong></p>
         </div>
         <div>
-        <button id="orderBtn">bestellen</button>
+        <button id="orderBtn" onclick="orderNow()" >bestellen</button>
         </div>
     `;
 }
@@ -183,4 +183,31 @@ function removeMeal(category, index) {
     const meal = meals[0][category][index];
     meal.amount = 0; // Menge auf 0 setzen, um das Gericht zu entfernen
     updateCartDisplay();
+}
+
+
+// Button bestellen
+function orderNow() {
+    for(const category in meals[0]) {
+        const mealCategory = meals[0][category];
+        mealCategory.forEach(meal => {
+            meal.amount = 0;
+
+    });
+    }
+    updateCartDisplay();
+    const orderMessage = document.getElementById('orderMessage')
+    orderMessage.innerHTML = `
+        <div class="orderMessageDiv">
+            <p>Sie haben soeben eine TESTBESTELLUNG aufgegeben.</p>
+            <button onclick="clearOrderMessage()">OK</button>
+        </div>
+        `;
+}
+
+
+// Löscht Bestellbestätigung im Cart
+function clearOrderMessage() {
+    const orderMessage = document.getElementById('orderMessage');
+    orderMessage.innerHTML = '';
 }
