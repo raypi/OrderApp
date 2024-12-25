@@ -116,8 +116,9 @@ function updateCartDisplay() {
     if (!hasItems) {
         cartContainer.innerHTML = '<p>Der Warenkorb ist leer.</p>';
     }
-    netInvoice();
-    sumInvoice();
+
+    // Aktualisiere die Zusammenfassung
+    updateInvoiceData();
 }
 
 
@@ -174,7 +175,7 @@ function netInvoice() {
     // Aktuellen Nettowert in der Konsole ausgeben
     console.log(`Netto: ${netValue} €`);
 
-    // return netValue; // Nettopreis auf 2 Nachkommastellen
+    return netValue; // Nettopreis auf 2 Nachkommastellen
 }
 
 
@@ -190,6 +191,30 @@ function sumInvoice() {
                 total += meal.price * meal.amount;
             }
         });
-        console.log(`gesammt: ${total} €`);
     }
+
+    // Lieferkosten berechnen
+    const shippingCost = total >= 29 ? 0 : 5; // Kostenlose Lieferung ab 29€
+
+    return {
+        total: (total + shippingCost).toFixed(2),
+        shippingCost: shippingCost.toFixed(2)
+    };
+}
+
+
+
+function updateInvoiceData() {
+    const invoiceData = document.getElementById('invoiceData');
+    const netTotal = netInvoice(); // Nettopreis berechnen
+    const invoice = sumInvoice(); // Gesamtsumme und Lieferkosten berechnen
+
+    // HTML für die Zusammenfassung aktualisieren
+    invoiceData.innerHTML = `
+        <div>
+            <p>Netto: ${netTotal} €</p>
+            <p>Lieferpauschale: ${invoice.shippingCost === "0.00" ? "Kostenlos" : `${invoice.shippingCost} €`}</p>
+            <p><strong>Gesamtpreis: ${invoice.total} €</strong></p>
+        </div>
+    `;
 }
