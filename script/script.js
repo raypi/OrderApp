@@ -116,7 +116,8 @@ function updateCartDisplay() {
     if (!hasItems) {
         cartContainer.innerHTML = '<p>Der Warenkorb ist leer.</p>';
     }
-    netInvoice()
+    netInvoice();
+    sumInvoice();
 }
 
 
@@ -171,7 +172,24 @@ function netInvoice() {
     const netValue = (netTotal / 1.19).toFixed(2);
 
     // Aktuellen Nettowert in der Konsole ausgeben
-    console.log(`Aktueller Nettowert (exkl. MwSt.): ${netValue} €`);
+    console.log(`Netto: ${netValue} €`);
 
     // return netValue; // Nettopreis auf 2 Nachkommastellen
+}
+
+
+// Summer der Gesammtrechnung ermitteln
+function sumInvoice() {
+    let total = 0;
+
+    for (const category in meals[0]) {
+        const mealCategory = meals[0][category];
+
+        mealCategory.forEach(meal => {
+            if (meal.amount > 0) {
+                total += meal.price * meal.amount;
+            }
+        });
+        console.log(`gesammt: ${total} €`);
+    }
 }
