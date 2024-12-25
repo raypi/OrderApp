@@ -9,6 +9,7 @@
 // init funktion
 function init(){
     renderMeals();
+    updateCartDisplay();
 }
 
 
@@ -36,7 +37,7 @@ function renderMeals() {
                             id="${category}-${index}" 
                             src="./img/plus.png" 
                             alt="button für mehr gerichte"
-                             onclick="addCartItem('${category}', ${index})"
+                            onclick="addCartItem('${category}', ${index})"
                         >
                     </div>
                     <p>${meal.description}</p>
@@ -83,26 +84,49 @@ function updateCartDisplay() {
     const cartContainer = document.getElementById('cart');
     cartContainer.innerHTML = ''; // Warenkorb leeren
 
+    let hasItems = false;
+
     for (const category in meals[0]) {
         const mealCategory = meals[0][category];
 
-        mealCategory.forEach(meal => {
+        mealCategory.forEach((meal, index) => {
             if (meal.amount > 0) {
+                hasItems = true;
                 cartContainer.innerHTML += `
                     <div>
                         ${meal.name}
                     </div>
                     <div class="mealInChart">
-                        <img class="chartBtn" src="./img/minus.png" alt="button für weniger gerichte">
+                        <img id="${category}-${index}-minus" class="chartBtn" src="./img/minus.png" alt="button für weniger gerichte" onclick="reduceMeal('${category}', ${index})">
                         <p>${meal.amount}</p>
-                        <img class="chartBtn" src="./img/plus.png" alt="button für mehr gerichte">
+                        <img id="${category}-${index}-plus" class="chartBtn" src="./img/plus.png" alt="button für mehr gerichte" onclick="addCartItem('${category}', ${index})">
                         <p>${(meal.price * meal.amount).toFixed(2)} €</p>
-                        <img class="chartBtn" src="./img/trash.png" alt="löschen des gerichtes">
+                        <img 
+                            class="chartBtn" 
+                            src="./img/trash.png" 
+                            alt="löschen des gerichtes"
+                        >
                     </div>
-                    <div class="separator">
-                    </div>
+                    <div class="separator"></div>
                 `;
             }
         });
     }
+
+    if (!hasItems) {
+        cartContainer.innerHTML = '<p>Der Warenkorb ist leer.</p>';
+    }
+}
+
+
+// Hinzufügen eines Artikels zum Warenkorb
+function addCartItem(category, index) {
+    const meal = meals[0][category][index];
+
+    meal.amount = (meal.amount || 0) + 1;
+
+    console.log(`${meal.name}: Menge auf ${meal.amount} erhöht.`);
+
+    // Warenkorb aktualisieren
+    updateCartDisplay();
 }
