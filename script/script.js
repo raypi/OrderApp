@@ -7,36 +7,31 @@
 
 
 // init funktion
-function init(){
+function init() {
     renderMeals();
     updateCartDisplay();
 }
 
-
 // Auslesen und Rendern der Gerichte nach Ketegorien
 function renderMeals() {
-    // Der Container, in dem die Gerichte angezeigt werden sollen
     const mealsContainer = document.getElementById('mealsOverview');
-    mealsContainer.innerHTML = ''; // Container leeren
+    mealsContainer.innerHTML = '';
 
-    // HTML-String für alle Gerichte vorbereiten
     let mealsHTML = '';
 
-    // Durch die Kategorien (pizza, noodles, burger) iterieren
     for (const category in meals[0]) {
         const mealCategory = meals[0][category];
 
-        // Jedes Gericht in der aktuellen Kategorie durchlaufen
         mealCategory.forEach((meal, index) => {
             mealsHTML += `
-                <div class="maelDiv">
+                <div class="mealDiv">
                     <div class="mealNameDiv">
                         <p>${meal.name}</p>
                         <img 
                             class="chartBtn" 
                             id="${category}-${index}" 
                             src="./img/plus.png" 
-                            alt="button für mehr gerichte"
+                            alt="button um dieses Gericht auszuwählen"
                             onclick="addCartItem('${category}', ${index})"
                         >
                     </div>
@@ -47,43 +42,24 @@ function renderMeals() {
         });
     }
 
-    // Den vorbereiteten HTML-String in den Container einfügen
     mealsContainer.innerHTML = mealsHTML;
 }
 
-
 // Funktion um aus der Übersicht der Gerichte in den Warenkorb zu verschieben
 function addCartItem(category, index) {
-    // Zugriff auf das Gericht basierend auf Kategorie und Index
     const meal = meals[0][category][index];
 
-    // Prüfen, ob der Amount 0 ist (nicht im Warenkorb)
-    if (meal.amount === 0) {
-        meal.amount = 1; // Hinzufügen zum Warenkorb
-        console.log(`${meal.name} wurde dem Warenkorb hinzugefügt.`);
-    } else {
-        // Amount erhöhen, wenn es bereits im Warenkorb ist
-        meal.amount += 1;
-        console.log(`Die Menge von ${meal.name} wurde auf ${meal.amount} erhöht.`);
-    }
+    meal.amount = (meal.amount || 0) + 1;
 
-    // Details des Gerichts ausgeben
-    console.log("Details des ausgewählten Gerichts:");
-    console.log(`Gericht: ${meal.name}`);
-    console.log(`Beschreibung: ${meal.description}`);
-    console.log(`Preis: ${meal.price.toFixed(2)} €`);
-    console.log(`Anzahl: ${meal.amount}`);
+    console.log(`${meal.name}: Menge auf ${meal.amount} erhöht.`);
 
-    // Aufgabe: Rendern des Warenkorbs
     updateCartDisplay();
 }
-
 
 // Ansicht der Gerichte im Warenkorb
 function updateCartDisplay() {
     const cartContainer = document.getElementById('cart');
-    cartContainer.innerHTML = ''; // Warenkorb leeren
-
+    cartContainer.innerHTML = '';
     let hasItems = false;
 
     for (const category in meals[0]) {
@@ -102,9 +78,11 @@ function updateCartDisplay() {
                         <img id="${category}-${index}-plus" class="chartBtn" src="./img/plus.png" alt="button für mehr gerichte" onclick="addCartItem('${category}', ${index})">
                         <p>${(meal.price * meal.amount).toFixed(2)} €</p>
                         <img 
+                            id="${category}-${index}-del"
                             class="chartBtn" 
                             src="./img/trash.png" 
                             alt="löschen des gerichtes"
+                            onclick="removeMeal('${category}', ${index})"
                         >
                     </div>
                     <div class="separator"></div>
@@ -117,45 +95,27 @@ function updateCartDisplay() {
         cartContainer.innerHTML = '<p>Der Warenkorb ist leer.</p>';
     }
 
-    // Aktualisiere die Zusammenfassung
-    updateInvoiceData();
+    updateInvoiceData(hasItems);
 }
 
-
-// Hinzufügen eines Artikels zum Warenkorb
-function addCartItem(category, index) {
-    const meal = meals[0][category][index];
-
-    meal.amount = (meal.amount || 0) + 1;
-
-    console.log(`${meal.name}: Menge auf ${meal.amount} erhöht.`);
-
-    // Warenkorb aktualisieren
-    updateCartDisplay();
-}
-
-
-// Abziehen eines Artikels im Warenkorb (Wenn Amount 0 = Löschen aus dem Warenkorb)
+// Abziehen eines Artikels im Warenkorb
 function reduceMeal(category, index) {
     const meal = meals[0][category][index];
 
-    // Menge reduzieren, wenn sie größer als 0 ist
     if (meal.amount > 0) {
         meal.amount -= 1;
         console.log(`${meal.name}: Menge auf ${meal.amount} reduziert.`);
 
-        // Wenn die Menge 0 erreicht, aus dem Warenkorb entfernen (optional)
         if (meal.amount === 0) {
             console.log(`${meal.name} wurde aus dem Warenkorb entfernt.`);
         }
     }
 
-    // Warenkorb aktualisieren
     updateCartDisplay();
 }
 
 
-// 
+// Nettopreis berechnen
 function netInvoice() {
     let netTotal = 0;
 
@@ -169,17 +129,12 @@ function netInvoice() {
         });
     }
 
-    // 19% MwSt. abziehen
     const netValue = (netTotal / 1.19).toFixed(2);
-
-    // Aktuellen Nettowert in der Konsole ausgeben
     console.log(`Netto: ${netValue} €`);
-
-    return netValue; // Nettopreis auf 2 Nachkommastellen
+    return netValue;
 }
 
-
-// Summer der Gesammtrechnung ermitteln
+// Gesamtrechnung und Lieferkosten ermitteln
 function sumInvoice() {
     let total = 0;
 
@@ -193,23 +148,25 @@ function sumInvoice() {
         });
     }
 
-    // Lieferkosten berechnen
     const shippingCost = total >= 29 ? 0 : 5; // Kostenlose Lieferung ab 29€
-
     return {
         total: (total + shippingCost).toFixed(2),
         shippingCost: shippingCost.toFixed(2)
     };
 }
 
-
-
-function updateInvoiceData() {
+// Zusammenfassung aktualisieren
+function updateInvoiceData(hasItems) {
     const invoiceData = document.getElementById('invoiceData');
-    const netTotal = netInvoice(); // Nettopreis berechnen
-    const invoice = sumInvoice(); // Gesamtsumme und Lieferkosten berechnen
 
-    // HTML für die Zusammenfassung aktualisieren
+    if (!hasItems) {
+        invoiceData.innerHTML = `<p>Der Warenkorb ist leer.</p>`;
+        return;
+    }
+
+    const netTotal = netInvoice();
+    const invoice = sumInvoice();
+
     invoiceData.innerHTML = `
         <div>
             <p>Netto: ${netTotal} €</p>
@@ -217,4 +174,15 @@ function updateInvoiceData() {
             <p><strong>Gesamtpreis: ${invoice.total} €</strong></p>
         </div>
     `;
+}
+
+
+// Entfernt das Essen komplett aus dem Warenkorb
+function removeMeal(category, index) {
+    const meal = meals[0][category][index];
+
+    meal.amount = 0; // Menge auf 0 setzen, um das Gericht zu entfernen
+    console.log(`${meal.name} wurde aus dem Warenkorb gelöscht.`);
+
+    updateCartDisplay();
 }
