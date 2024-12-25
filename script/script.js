@@ -130,3 +130,23 @@ function addCartItem(category, index) {
     // Warenkorb aktualisieren
     updateCartDisplay();
 }
+
+
+// Abziehen eines Artikels im Warenkorb (Wenn Amount 0 = Löschen aus dem Warenkorb)
+function reduceMeal(category, index) {
+    const meal = meals[0][category][index];
+
+    // Menge reduzieren, wenn sie größer als 0 ist
+    if (meal.amount > 0) {
+        meal.amount -= 1;
+        console.log(`${meal.name}: Menge auf ${meal.amount} reduziert.`);
+
+        // Wenn die Menge 0 erreicht, aus dem Warenkorb entfernen (optional)
+        if (meal.amount === 0) {
+            console.log(`${meal.name} wurde aus dem Warenkorb entfernt.`);
+        }
+    }
+
+    // Warenkorb aktualisieren
+    updateCartDisplay();
+}
