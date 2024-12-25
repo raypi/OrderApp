@@ -74,5 +74,35 @@ function addCartItem(category, index) {
     console.log(`Anzahl: ${meal.amount}`);
 
     // Aufgabe: Rendern des Warenkorbs
-    //updateCartDisplay();
+    updateCartDisplay();
+}
+
+
+// Ansicht der Gerichte im Warenkorb
+function updateCartDisplay() {
+    const cartContainer = document.getElementById('cart');
+    cartContainer.innerHTML = ''; // Warenkorb leeren
+
+    for (const category in meals[0]) {
+        const mealCategory = meals[0][category];
+
+        mealCategory.forEach(meal => {
+            if (meal.amount > 0) {
+                cartContainer.innerHTML += `
+                    <div>
+                        ${meal.name}
+                    </div>
+                    <div class="mealInChart">
+                        <img class="chartBtn" src="./img/minus.png" alt="button für weniger gerichte">
+                        <p>${meal.amount}</p>
+                        <img class="chartBtn" src="./img/plus.png" alt="button für mehr gerichte">
+                        <p>${(meal.price * meal.amount).toFixed(2)} €</p>
+                        <img class="chartBtn" src="./img/trash.png" alt="löschen des gerichtes">
+                    </div>
+                    <div class="separator">
+                    </div>
+                `;
+            }
+        });
+    }
 }
