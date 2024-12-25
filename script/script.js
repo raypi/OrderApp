@@ -116,6 +116,7 @@ function updateCartDisplay() {
     if (!hasItems) {
         cartContainer.innerHTML = '<p>Der Warenkorb ist leer.</p>';
     }
+    netInvoice()
 }
 
 
@@ -149,4 +150,28 @@ function reduceMeal(category, index) {
 
     // Warenkorb aktualisieren
     updateCartDisplay();
+}
+
+
+// 
+function netInvoice() {
+    let netTotal = 0;
+
+    for (const category in meals[0]) {
+        const mealCategory = meals[0][category];
+
+        mealCategory.forEach(meal => {
+            if (meal.amount > 0) {
+                netTotal += meal.price * meal.amount;
+            }
+        });
+    }
+
+    // 19% MwSt. abziehen
+    const netValue = (netTotal / 1.19).toFixed(2);
+
+    // Aktuellen Nettowert in der Konsole ausgeben
+    console.log(`Aktueller Nettowert (exkl. MwSt.): ${netValue} €`);
+
+    // return netValue; // Nettopreis auf 2 Nachkommastellen
 }
