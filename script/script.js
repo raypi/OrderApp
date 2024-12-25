@@ -158,6 +158,7 @@ function updateInvoiceData(hasItems) {
     const invoiceData = document.getElementById('invoiceData');
 
     if (!hasItems) {
+        invoiceData.innerHTML = '';
         return;
     }
 
@@ -180,9 +181,6 @@ function updateInvoiceData(hasItems) {
 // Entfernt das Essen komplett aus dem Warenkorb
 function removeMeal(category, index) {
     const meal = meals[0][category][index];
-
     meal.amount = 0; // Menge auf 0 setzen, um das Gericht zu entfernen
-    console.log(`${meal.name} wurde aus dem Warenkorb gelöscht.`);
-
     updateCartDisplay();
 }
