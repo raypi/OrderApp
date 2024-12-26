@@ -208,6 +208,22 @@ button {
 }
 
 
+.dialogCart {
+    position: fixed;
+    top: 10%;
+    left: 10%;
+    width: 80%;
+    height: auto;
+    background-color: white;
+    border: 2px solid gray;
+    border-radius: 8px;
+    z-index: 2000;
+    padding: 16px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    display: none;
+}
+
+
 @media (max-width: 600px) {
     .chartWrapper {
         display: none;
