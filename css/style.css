@@ -191,11 +191,31 @@ button {
 }
 
 
+.toggleCartButton {
+    display: none;
+    position: fixed;
+    bottom: 8px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 8px;
+    background-color: green;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    z-index: 1000;
+}
+
+
 @media (max-width: 600px) {
     .chartWrapper {
         display: none;
     }
     .maelsGalerySec {
         width: 100%;
+    }
+    #toggleCartButton {
+        display: block;
     }
 }
