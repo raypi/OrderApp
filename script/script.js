@@ -211,3 +211,22 @@ function clearOrderMessage() {
     const orderMessage = document.getElementById('orderMessage');
     orderMessage.innerHTML = '';
 }
+
+
+function toggleCart(){
+    const cartSection = document.getElementById('cardSection');
+    const cartDialog = document.getElementById('dialogCart');
+
+    if (cartDialog.style.display === 'block') {
+        cartDialog.style.display = 'none';
+    } else {
+        cartDialog.style.display = 'block'; 
+        cartDialog.innerHTML = cartSection.innerHTML;
+        const closeButton = document.createElement('button');
+        closeButton.textContent = 'Menue auswahl';
+        closeButton.onclick = () => {
+            cartDialog.style.display = 'none';
+        };
+        cartDialog.appendChild(closeButton);
+    }
+}
