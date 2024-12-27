@@ -1,11 +1,9 @@
-// warenkorb scrollbar machen
-// ggf. Disign schön machen
-
 // init funktion
 function init() {
   renderMeals();
   updateCartDisplay();
 }
+
 
 // Auslesen und Rendern der Gerichte nach Ketegorien
 function renderMeals() {
@@ -25,12 +23,14 @@ function renderMeals() {
   mealsContainer.innerHTML = mealsHTML;
 }
 
+
 // Funktion um aus der Übersicht der Gerichte in den Warenkorb zu verschieben
 function addCartItem(category, index) {
     const meal = meals[0][category][index];
     meal.amount = (meal.amount || 0) + 1;
     updateCartDisplay();
 }
+
 
 // Ansicht der Gerichte im Warenkorb
 function updateCartDisplay() {
@@ -56,6 +56,7 @@ function updateCartDisplay() {
   updateInvoiceData(hasItems);
 }
 
+
 // Abziehen eines Artikels im Warenkorb
 function reduceMeal(category, index) {
   const meal = meals[0][category][index];
@@ -69,6 +70,7 @@ function reduceMeal(category, index) {
 
   updateCartDisplay();
 }
+
 
 // Nettopreis berechnen
 function netInvoice() {
@@ -87,6 +89,7 @@ function netInvoice() {
   const netValue = (netTotal / 1.19).toFixed(2);
   return netValue;
 }
+
 
 // Gesamtrechnung und Lieferkosten ermitteln
 function sumInvoice() {
@@ -109,6 +112,7 @@ function sumInvoice() {
   };
 }
 
+
 // Zusammenfassung aktualisieren
 function updateInvoiceData(hasItems) {
   const invoiceData = document.getElementById("invoiceData");
@@ -124,12 +128,14 @@ function updateInvoiceData(hasItems) {
   invoiceData.innerHTML = getInvoiceTemplate(netTotal, invoice.shippingCost, invoice.total);
 }
 
+
 // Entfernt das Essen komplett aus dem Warenkorb
 function removeMeal(category, index) {
   const meal = meals[0][category][index];
   meal.amount = 0; // Menge auf 0 setzen, um das Gericht zu entfernen
   updateCartDisplay();
 }
+
 
 // Button bestellen
 function orderNow() {
@@ -144,11 +150,13 @@ function orderNow() {
   orderMessage.innerHTML = getOrderInformationTemplate();
 }
 
+
 // Löscht Bestellbestätigung im Cart
 function clearOrderMessage() {
   const orderMessage = document.getElementById("orderMessage");
   orderMessage.innerHTML = "";
 }
+
 
 // anzeigen des Warenkorbes in der verkleinerten Ansicht ab 600px
 function showResponisveCart() {
