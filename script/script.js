@@ -213,20 +213,56 @@ function clearOrderMessage() {
 }
 
 
-function toggleCart(){
-    const cartSection = document.getElementById('cardSection');
+// Warenkorb ein und ausschalten
+function toggleCart() {
+    const cartSection = document.getElementById('cardSection'); // Angepasste ID
     const cartDialog = document.getElementById('dialogCart');
 
+    // Sicherheitscheck
+    if (!cartSection || !cartDialog) {
+        console.error("Elemente 'cardSection' oder 'dialogCart' nicht gefunden.");
+        return;
+    }
+
+    // Warenkorb aktualisieren
+    updateCartDisplay();
+
     if (cartDialog.style.display === 'block') {
+        // Warenkorb ausblenden
         cartDialog.style.display = 'none';
     } else {
-        cartDialog.style.display = 'block'; 
-        cartDialog.innerHTML = cartSection.innerHTML;
+        // Warenkorb anzeigen
+        cartDialog.style.display = 'block';
+
+        // Vorherigen Inhalt löschen und aktualisierten Inhalt einfügen
+        cartDialog.innerHTML = ''; // Zurücksetzen
+        const cartContent = cartSection.cloneNode(true); // Kopiere Inhalt inkl. Events
+        cartDialog.appendChild(cartContent);
+
+        // Button "Menüauswahl" hinzufügen
         const closeButton = document.createElement('button');
-        closeButton.textContent = 'Menue auswahl';
+        closeButton.textContent = 'Menüauswahl';
         closeButton.onclick = () => {
             cartDialog.style.display = 'none';
         };
         cartDialog.appendChild(closeButton);
     }
 }
+
+
+// Dynamisch den Warenkorb Btn anzeigen nach grösse des Displays
+function showHiddeCart() {
+    const cartSection = document.getElementById('cardSection');
+    const toggleCartButton = document.getElementById('toggleCartButton');
+
+    if (window.innerWidth <= 600) {
+        cartSection.style.display = 'none';
+        toggleCartButton.style.display = 'block';
+    } else {
+        cartSection.style.display = 'block';
+        toggleCartButton.style.display = 'none';
+    }
+}
+
+window.onresize = showHiddeCart;
+window.onload = showHiddeCart;
