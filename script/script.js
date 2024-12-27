@@ -146,12 +146,7 @@ function orderNow() {
   }
   updateCartDisplay();
   const orderMessage = document.getElementById("orderMessage");
-  orderMessage.innerHTML = `
-        <div class="orderMessageDiv">
-            <p>Sie haben soeben eine TESTBESTELLUNG aufgegeben.</p>
-            <button onclick="clearOrderMessage()">OK</button>
-        </div>
-        `;
+  orderMessage.innerHTML = getOrderInformationTemplate();
 }
 
 // Löscht Bestellbestätigung im Cart

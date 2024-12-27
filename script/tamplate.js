@@ -57,3 +57,13 @@ function getInvoiceTemplate (netTotal, shippingCost, total) {
         </div>
     `;
 }
+
+
+function getOrderInformationTemplate() {
+    return `
+        <div class="orderMessageDiv">
+            <p>Sie haben soeben eine TESTBESTELLUNG aufgegeben.</p>
+            <button onclick="clearOrderMessage()">OK</button>
+        </div>
+        `;
+}
