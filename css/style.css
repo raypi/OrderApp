@@ -55,6 +55,13 @@ button {
 }
 
 
+.mealImg {
+    object-fit: cover;
+    height: 100px;
+    width: 100%;
+}
+
+
 .logoDiv {
     position: absolute; /* sorgt für Positionierung übder img */
     top: 70%; 
@@ -160,6 +167,7 @@ button {
 .chartBtn {
     height: 16px;
     width: 16px;
+    cursor: pointer;
 
 }
 
