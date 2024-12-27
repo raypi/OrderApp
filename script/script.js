@@ -48,25 +48,7 @@ function updateCartDisplay() {
     mealCategory.forEach((meal, index) => {
       if (meal.amount > 0) {
         hasItems = true;
-        cartContainer.innerHTML += `
-                    <div>
-                        ${meal.name}
-                    </div>
-                    <div class="mealInChart">
-                        <img id="${category}-${index}-minus" class="chartBtn" src="./img/minus.png" alt="button für weniger gerichte" onclick="reduceMeal('${category}', ${index})">
-                        <p>${meal.amount}</p>
-                        <img id="${category}-${index}-plus" class="chartBtn" src="./img/plus.png" alt="button für mehr gerichte" onclick="addCartItem('${category}', ${index})">
-                        <p>${(meal.price * meal.amount).toFixed(2)} €</p>
-                        <img 
-                            id="${category}-${index}-del"
-                            class="chartBtn" 
-                            src="./img/trash.png" 
-                            alt="löschen des gerichtes"
-                            onclick="removeMeal('${category}', ${index})"
-                        >
-                    </div>
-                    <div class="separator"></div>
-                `;
+        cartContainer.innerHTML += getCartDisplayTemplate(category, index, meal);
       }
     });
   }
