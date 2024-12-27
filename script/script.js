@@ -80,25 +80,6 @@ function reduceMeal(category, index) {
 }
 
 
-// Nettopreis berechnen
-function netInvoice() {
-  let netTotal = 0;
-
-  for (const category in meals[0]) {
-    const mealCategory = meals[0][category];
-
-    mealCategory.forEach((meal) => {
-      if (meal.amount > 0) {
-        netTotal += meal.price * meal.amount;
-      }
-    });
-  }
-
-  const netValue = (netTotal / 1.19).toFixed(2);
-  return netValue;
-}
-
-
 // Gesamtrechnung und Lieferkosten ermitteln
 function sumInvoice() {
   let total = 0;
@@ -114,9 +95,13 @@ function sumInvoice() {
   }
 
   const shippingCost = total >= 39 ? 0 : 7; // Kostenlose Lieferung ab 39€
+  const sumTotal = total + shippingCost;
+  const netTotal = (sumTotal /1.19).toFixed(2);
+
   return {
-    total: (total + shippingCost).toFixed(2),
+    total: sumTotal.toFixed(2),
     shippingCost: shippingCost.toFixed(2),
+    netTotal,
   };
 }
 
@@ -130,10 +115,9 @@ function updateInvoiceData(hasItems) {
     return;
   }
 
-  const netTotal = netInvoice();
   const invoice = sumInvoice();
 
-  invoiceData.innerHTML = getInvoiceTemplate(netTotal, invoice.shippingCost, invoice.total);
+  invoiceData.innerHTML = getInvoiceTemplate(invoice.netTotal, invoice.shippingCost, invoice.total);
 }
 
 
