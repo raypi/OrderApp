@@ -18,22 +18,7 @@ function renderMeals() {
     const mealCategory = meals[0][category];
 
     mealCategory.forEach((meal, index) => {
-      mealsHTML += `
-                <div class="mealDiv">
-                    <div class="mealNameDiv">
-                        <p>${meal.name}</p>
-                        <img 
-                            class="chartBtn" 
-                            id="${category}-${index}" 
-                            src="./img/plus.png" 
-                            alt="button um dieses Gericht auszuwählen"
-                            onclick="addCartItem('${category}', ${index})"
-                        >
-                    </div>
-                    <p>${meal.description}</p>
-                    <p>${meal.price.toFixed(2)} €</p>
-                </div>
-            `;
+      mealsHTML += getMealTamplate(category, index, meal);
     });
   }
 
