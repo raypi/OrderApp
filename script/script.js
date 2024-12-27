@@ -211,9 +211,11 @@ function clearOrderMessage() {
 // soll gerichte ausblenden und Cart an die stelle rücken
 // ggf. "Warenkorb anzeigen BTN mit aktuellem Wert als ausgabe erweitern"
 function showResponisveCart() {
-    const maelWrapper = document.getElementById("mealsOverview");
+    const maelWrapper = document.getElementById("maelsGalery");
     const cartWrapper = document.getElementById("cartWrapper");
     const button = document.getElementById("toggleCartButton");
+
+    
 
 
 }
