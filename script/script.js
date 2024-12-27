@@ -126,20 +126,7 @@ function updateInvoiceData(hasItems) {
   const netTotal = netInvoice();
   const invoice = sumInvoice();
 
-  invoiceData.innerHTML = `
-        <div>
-            <p>Netto: ${netTotal} €</p>
-            <p>Lieferung: ${
-              invoice.shippingCost === "0.00"
-                ? "gratis"
-                : `${invoice.shippingCost} €`
-            }</p>
-            <p><strong>Gesamtpreis: ${invoice.total} €</strong></p>
-        </div>
-        <div>
-        <button id="orderBtn" onclick="orderNow()" >bestellen</button>
-        </div>
-    `;
+  invoiceData.innerHTML = getInvoiceTemplate(netTotal, invoice.shippingCost, invoice.total);
 }
 
 // Entfernt das Essen komplett aus dem Warenkorb
@@ -174,8 +161,6 @@ function clearOrderMessage() {
 }
 
 // anzeigen des Warenkorbes in der verkleinerten Ansicht ab 600px
-// soll gerichte ausblenden und Cart an die stelle rücken
-// ggf. "Warenkorb anzeigen BTN mit aktuellem Wert als ausgabe erweitern"
 function showResponisveCart() {
     const maelWrapper = document.getElementById("maelsGalery");
     const cartWrapper = document.getElementById("cartWrapper");

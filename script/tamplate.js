@@ -39,3 +39,21 @@ function getCartDisplayTemplate(category, index, meal) {
                     <div class="separator"></div>
                 `;
 }
+
+
+function getInvoiceTemplate (netTotal, shippingCost, total) {
+    return `
+        <div>
+            <p>Netto: ${netTotal} €</p>
+            <p>Lieferung: ${
+              shippingCost === "0.00"
+                ? "gratis"
+                : `${shippingCost} €`
+            }</p>
+            <p><strong>Gesamtpreis: ${total} €</strong></p>
+        </div>
+        <div>
+        <button id="orderBtn" onclick="orderNow()" >bestellen</button>
+        </div>
+    `;
+}
