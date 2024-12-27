@@ -105,6 +105,11 @@ button {
 }
 
 
+.maelWrapperSmal {
+    display: none;
+}
+
+
 .maelsGalerySec {
     width: calc(100% - 300px);
 }
@@ -115,6 +120,15 @@ button {
     flex-grow: 1;
     padding: 16px;
 }
+
+
+/* .chartWrapperSmal {
+    display: block;
+    position: relative;
+    z-index: 1;
+    width: auto;
+    height: 450px;
+} */
 
 
 .chart {
@@ -213,8 +227,8 @@ button {
     top: 10%;
     left: 10%;
     width: 80%;
-    height: auto;
-    background-color: white;
+    height: 450px;
+    background-color: blue;
     border: 2px solid gray;
     border-radius: 8px;
     z-index: 2000;
@@ -225,13 +239,24 @@ button {
 
 
 @media (max-width: 600px) {
-    .chartWrapper {
+    /* .chartWrapper {
         display: none;
-    }
+    } */
     .maelsGalerySec {
         width: 100%;
+        display: none;
     }
     #toggleCartButton {
         display: block;
     }
+
+
+    .chartWrapperSmal {
+    display: block;
+    position: relative;
+    z-index: 1;
+    width: 90%;
+    height: 450px;
+    }
+    
 }
