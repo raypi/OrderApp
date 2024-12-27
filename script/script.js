@@ -27,13 +27,9 @@ function renderMeals() {
 
 // Funktion um aus der Übersicht der Gerichte in den Warenkorb zu verschieben
 function addCartItem(category, index) {
-  const meal = meals[0][category][index];
-
-  meal.amount = (meal.amount || 0) + 1;
-
-  console.log(`${meal.name}: Menge auf ${meal.amount} erhöht.`);
-
-  updateCartDisplay();
+    const meal = meals[0][category][index];
+    meal.amount = (meal.amount || 0) + 1;
+    updateCartDisplay();
 }
 
 // Ansicht der Gerichte im Warenkorb
@@ -89,7 +85,6 @@ function netInvoice() {
   }
 
   const netValue = (netTotal / 1.19).toFixed(2);
-  console.log(`Netto: ${netValue} €`);
   return netValue;
 }
 
