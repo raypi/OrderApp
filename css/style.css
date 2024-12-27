@@ -119,6 +119,7 @@ button {
     display: none;
 }
 
+
 .chartWrapper {
     width: 300px;
     flex-grow: 1;
@@ -134,21 +135,13 @@ button {
     height: 450px;
     }
 
+
 .cartScrollContainer {
     max-height: 300px;
     width: 280px;
     overflow-y: auto;
     border-radius: 4px;
 }
-
-
-/* .chartWrapperSmal {
-    display: block;
-    position: relative;
-    z-index: 1;
-    width: auto;
-    height: 450px;
-} */
 
 
 .chart {
@@ -259,12 +252,11 @@ button {
 
 
 @media (max-width: 600px) {
-    /* .chartWrapper {
-        display: none;
-    } */
     .maelsGalerySec {
         width: 100%;
     }
+
+
     #toggleCartButton {
         display: block;
     }
@@ -273,5 +265,4 @@ button {
     .chartWrapper {
     display: none;
     }
-    
 }
