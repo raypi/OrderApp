@@ -1,4 +1,3 @@
-// Bei der Handy APP rutsch der Warenkorb BTN nach Untern, der Angezeigte Warenkorb ist der gleich wie in der Desktop ansicht
 // warenkorb scrollbar machen
 // ggf. Disign schön machen
 
@@ -215,7 +214,15 @@ function showResponisveCart() {
     const cartWrapper = document.getElementById("cartWrapper");
     const button = document.getElementById("toggleCartButton");
 
-    
 
+    maelWrapper.classList.toggle("maelsGalerySec");
+    maelWrapper.classList.toggle("maelsGalerySecDnone");
+    cartWrapper.classList.toggle("chartWrapper");
+    cartWrapper.classList.toggle("chartWrapperSmal");
 
+    if (maelWrapper.classList.contains("maelsGalerySec")) {
+        button.innerText = "Warenkorb anzeigen";
+    } else {
+        button.innerText = "Menüauswahl anzeigen";
+    }
 }

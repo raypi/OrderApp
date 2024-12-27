@@ -115,11 +115,24 @@ button {
 }
 
 
+.maelsGalerySecDnone {
+    display: none;
+}
+
 .chartWrapper {
     width: 300px;
     flex-grow: 1;
     padding: 16px;
 }
+
+
+.chartWrapperSmal {
+    display: block;
+    position: relative;
+    z-index: 1;
+    width: 90%;
+    height: 450px;
+    }
 
 
 /* .chartWrapperSmal {
@@ -244,19 +257,14 @@ button {
     } */
     .maelsGalerySec {
         width: 100%;
-        display: none;
     }
     #toggleCartButton {
         display: block;
     }
 
 
-    .chartWrapperSmal {
-    display: block;
-    position: relative;
-    z-index: 1;
-    width: 90%;
-    height: 450px;
+    .chartWrapper {
+    display: none;
     }
     
 }
