@@ -1,4 +1,6 @@
 // Bei der Handy APP rutsch der Warenkorb BTN nach Untern, der Angezeigte Warenkorb ist der gleich wie in der Desktop ansicht
+// warenkorb scrollbar machen
+// ggf. Disign schön machen
 
 
 // init funktion
@@ -141,7 +143,7 @@ function sumInvoice() {
         });
     }
 
-    const shippingCost = total >= 29 ? 0 : 5; // Kostenlose Lieferung ab 29€
+    const shippingCost = total >= 39 ? 0 : 7; // Kostenlose Lieferung ab 39€
     return {
         total: (total + shippingCost).toFixed(2),
         shippingCost: shippingCost.toFixed(2)
@@ -208,56 +210,9 @@ function clearOrderMessage() {
 }
 
 
-// Warenkorb ein und ausschalten
-function toggleCart() {
-    const cartSection = document.getElementById('cardSection'); // Angepasste ID
-    const cartDialog = document.getElementById('dialogCart');
+// anzeigen des Warenkorbes in der verkleinerten Ansicht ab 600px
+// soll gerichte ausblenden und Cart an die stelle rücken
+// ggf. "Warenkorb anzeigen BTN mit aktuellem Wert als ausgabe erweitern"
+function showResponisveCart() {
 
-    // Sicherheitscheck
-    if (!cartSection || !cartDialog) {
-        console.error("Elemente 'cardSection' oder 'dialogCart' nicht gefunden.");
-        return;
-    }
-
-    // Warenkorb aktualisieren
-    updateCartDisplay();
-
-    if (cartDialog.style.display === 'block') {
-        // Warenkorb ausblenden
-        cartDialog.style.display = 'none';
-    } else {
-        // Warenkorb anzeigen
-        cartDialog.style.display = 'block';
-
-        // Vorherigen Inhalt löschen und aktualisierten Inhalt einfügen
-        cartDialog.innerHTML = ''; // Zurücksetzen
-        const cartContent = cartSection.cloneNode(true); // Kopiere Inhalt inkl. Events
-        cartDialog.appendChild(cartContent);
-
-        // Button "Menüauswahl" hinzufügen
-        const closeButton = document.createElement('button');
-        closeButton.textContent = 'Menüauswahl';
-        closeButton.onclick = () => {
-            cartDialog.style.display = 'none';
-        };
-        cartDialog.appendChild(closeButton);
-    }
 }
-
-
-// Dynamisch den Warenkorb Btn anzeigen nach grösse des Displays
-function showHiddeCart() {
-    const cartSection = document.getElementById('cardSection');
-    const toggleCartButton = document.getElementById('toggleCartButton');
-
-    if (window.innerWidth <= 600) {
-        cartSection.style.display = 'none';
-        toggleCartButton.style.display = 'block';
-    } else {
-        cartSection.style.display = 'block';
-        toggleCartButton.style.display = 'none';
-    }
-}
-
-window.onresize = showHiddeCart;
-window.onload = showHiddeCart;
