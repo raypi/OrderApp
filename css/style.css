@@ -134,6 +134,13 @@ button {
     height: 450px;
     }
 
+.cartScrollContainer {
+    max-height: 300px;
+    width: 280px;
+    overflow-y: auto;
+    border-radius: 4px;
+}
+
 
 /* .chartWrapperSmal {
     display: block;
