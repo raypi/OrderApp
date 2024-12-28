@@ -161,8 +161,10 @@ function showResponisveCart() {
     cartWrapper.classList.toggle("chartWrapper");
     cartWrapper.classList.toggle("chartWrapperSmal");
 
+    const invoice = sumInvoice();
+
     if (maelWrapper.classList.contains("maelsGalerySec")) {
-        button.innerText = "Warenkorb anzeigen";
+        button.innerText = `Warenkorb anzeigen [${invoice.total} €]`;
     } else {
         button.innerText = "Menüauswahl anzeigen";
     }
