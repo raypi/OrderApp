@@ -172,8 +172,8 @@ function showResponisveCart() {
     const invoice = sumInvoice();
 
     if (maelWrapper.classList.contains("maelsGalerySec")) {
-        getCartPrice();
-        // button.innerText = `Warenkorb anzeigen [${invoice.total} €]`;
+        //getCartPrice();
+        button.innerText = `Warenkorb anzeigen [${invoice.total} €]`;
     } else {
         button.innerText = "Menüauswahl anzeigen";
     }
@@ -188,7 +188,10 @@ function getCartPrice(){
   if (button.innerHTML.includes("Warenkorb anzeigen")) {
     if (invoice.total > 7)
     button.innerHTML = `Warenkorb anzeigen [${invoice.total} €]`;
-  } else {
+    else 
     button.innerHTML = `Warenkorb anzeigen [0 €]`
+  } else {
+    button.innerText = "Menüauswahl anzeigen";
   }
+  
 }
