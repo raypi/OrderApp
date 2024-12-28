@@ -1,7 +1,6 @@
 // ### ### ### A U F G A B E N : ### ### ###
 // Design schön machen
 // Trennbilder zwischen Produktkategorien
-// Summe des Warenkorbes auf Toggle Button anzeigen
 
 
 
