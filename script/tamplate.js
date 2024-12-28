@@ -48,14 +48,33 @@ function getCartDisplayTemplate(category, index, meal) {
 
 function getInvoiceTemplate (netTotal, shippingCost, total) {
     return `
-        <div>
-            <p>Netto: ${netTotal} €</p>
-            <p>Lieferung: ${
-              shippingCost === "0.00"
-                ? "gratis"
-                : `${shippingCost} €`
-            }</p>
-            <p><strong>Gesamtpreis: ${total} €</strong></p>
+        <div class="spaceBetween">
+            <div>
+                <p>Netto:</p>
+            </div> 
+            <div>
+                <p>${netTotal} €</p>
+            </div>
+        </div>
+        <div class="spaceBetween">
+            <div>    
+                <p>Lieferung:<p> 
+            </div>
+            <div>
+                <p>${
+                    shippingCost === "0.00"
+                        ? "gratis"
+                        : `${shippingCost} €`
+                }</p>
+            </div> 
+        </div>
+        <div class="spaceBetween">
+            <div>    
+                <p><strong>Gesamtpreis:</strong></p> 
+            </div>
+            <div>
+                <p><strong>${total} €</strong></p>
+            </div>    
         </div>
         <div>
         <button id="orderBtn" onclick="orderNow()" >bestellen</button>
