@@ -2,8 +2,7 @@
 // Design schön machen
 // Trennbilder zwischen Produktkategorien
 // Summe des Warenkorbes auf Toggle Button anzeigen
-// Bestellung nur ausführen wenn Inhalt im Warenkorb ist
-// Cart Rechnungsteil Stylen [space between] damit die Zeilen besser lebar werden
+
 
 
 // init funktion
