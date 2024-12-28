@@ -61,6 +61,7 @@ function updateCartDisplay() {
   }
 
   updateInvoiceData(hasItems);
+  getCartPrice();
 }
 
 
@@ -173,10 +174,13 @@ function showResponisveCart() {
 
 // Prüft den Zustand des CartButton und sendet im Menü modus den Wert des Warenkorbes an den Button
 function getCartPrice(){
-  const button = getElementById("toggleCartButton");
+  const button = document.getElementById("toggleCartButton");
   const invoice = sumInvoice();
 
   if (button.innerHTML.includes("Warenkorb anzeigen")) {
+    if (invoice.total > 7)
     button.innerHTML = `Warenkorb anzeigen [${invoice.total} €]`;
+  } else {
+    button.innerHTML = `Warenkorb anzeigen [0 €]`
   }
 }
