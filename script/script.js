@@ -9,6 +9,7 @@
 function init() {
   renderMeals();
   updateCartDisplay();
+  getCartPrice();
 }
 
 
@@ -165,6 +166,7 @@ function showResponisveCart() {
     const invoice = sumInvoice();
 
     if (maelWrapper.classList.contains("maelsGalerySec")) {
+        // getCartPrice();
         button.innerText = `Warenkorb anzeigen [${invoice.total} €]`;
     } else {
         button.innerText = "Menüauswahl anzeigen";
