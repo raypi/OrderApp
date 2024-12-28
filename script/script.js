@@ -1,9 +1,10 @@
 // ### ### ### A U F G A B E N : ### ### ###
 // Design schön machen
 // Trennbilder zwischen Produktkategorien
-// Sound hinzufügen 
 
-
+let AUDIO_BING = new Audio('audio/bing.mp3');
+let AUDIO_KEYPRESS = new Audio('audio/keypress.mp3');
+let AUDIO_TRASH = new Audio('audio/trash.mp3');
 
 // init funktion
 function init() {
@@ -37,6 +38,7 @@ function addCartItem(category, index) {
     const meal = meals[0][category][index];
     meal.amount = (meal.amount || 0) + 1;
     updateCartDisplay();
+    AUDIO_BING.play();
 }
 
 
@@ -72,12 +74,15 @@ function reduceMeal(category, index) {
 
   if (meal.amount > 0) {
     meal.amount -= 1;
+    AUDIO_KEYPRESS.play();
 
     if (meal.amount === 0) {
+      AUDIO_TRASH.play();
     }
   }
 
   updateCartDisplay();
+  
 }
 
 
@@ -127,6 +132,7 @@ function removeMeal(category, index) {
   const meal = meals[0][category][index];
   meal.amount = 0; // Menge auf 0 setzen, um das Gericht zu entfernen
   updateCartDisplay();
+  AUDIO_TRASH.play();
 }
 
 
@@ -166,8 +172,8 @@ function showResponisveCart() {
     const invoice = sumInvoice();
 
     if (maelWrapper.classList.contains("maelsGalerySec")) {
-        // getCartPrice();
-        button.innerText = `Warenkorb anzeigen [${invoice.total} €]`;
+        getCartPrice();
+        // button.innerText = `Warenkorb anzeigen [${invoice.total} €]`;
     } else {
         button.innerText = "Menüauswahl anzeigen";
     }
