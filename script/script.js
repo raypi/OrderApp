@@ -169,3 +169,14 @@ function showResponisveCart() {
         button.innerText = "Menüauswahl anzeigen";
     }
 }
+
+
+// Prüft den Zustand des CartButton und sendet im Menü modus den Wert des Warenkorbes an den Button
+function getCartPrice(){
+  const button = getElementById("toggleCartButton");
+  const invoice = sumInvoice();
+
+  if (button.innerHTML.includes("Warenkorb anzeigen")) {
+    button.innerHTML = `Warenkorb anzeigen [${invoice.total} €]`;
+  }
+}
