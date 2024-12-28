@@ -96,7 +96,7 @@ function sumInvoice() {
 
   const shippingCost = total >= 39 ? 0 : 7; // Kostenlose Lieferung ab 39€
   const sumTotal = total + shippingCost;
-  const netTotal = (sumTotal /1.19).toFixed(2);
+  const netTotal = (sumTotal / 1.19).toFixed(2);
 
   return {
     total: sumTotal.toFixed(2),

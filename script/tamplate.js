@@ -20,8 +20,13 @@ function getMealTamplate(category, index, meal) {
 
 function getCartDisplayTemplate(category, index, meal) {
     return `
-                    <div>
+                    <div class="spaceBetween">
+                        <div>
                         ${meal.name}
+                        </div>
+                        <div>
+                        Preis: ${(meal.price).toFixed(2)}
+                        </div>
                     </div>
                     <div class="mealInChart">
                         <img id="${category}-${index}-minus" class="chartBtn" src="./img/minus.png" alt="button für weniger gerichte" onclick="reduceMeal('${category}', ${index})">

@@ -259,6 +259,12 @@ button {
 }
 
 
+.spaceBetween {
+    display: flex;
+    justify-content: space-between;
+}
+
+
 @media (max-width: 600px) {
     .maelsGalerySec {
         width: 100%;
