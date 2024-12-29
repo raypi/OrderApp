@@ -1,0 +1,49 @@
+:root {
+    --backgroundColorOrange: orange;
+    --backgroundColorGray: gray;
+    --buttonGreen: green;
+    --textWhite: white;
+    --textBlack: black;
+    --lightGray: lightgray;
+    --errorRed: red;
+    --dialogBlue: blue;
+    --borderGray: gray;
+
+    --headerHeight: 150px;
+    --footerHeight: 64px;
+    --buttonHeight: 32px;
+    --buttonWidth: 100%;
+    --cardRadius: 8px;
+    --cartWidth: 300px;
+
+    --paddingSmall: 8px;
+    --paddingMedium: 16px;
+    --marginSmall: 4px;
+    --marginMedium: 8px;
+
+    --fontSizeSmall: 16px;
+    --fontSizeMedium: 18px;
+    --fontWeightNormal: 400;
+    --fontWeightBold: 700;
+
+    --boxShadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+body {
+    margin: 0;
+}
+
+header {
+    background-color: var(--backgroundColorOrange);
+    display: flex;
+    justify-content: space-between;
+    height: var(--headerHeight);
+}
+
+footer {
+    background-color: var(--backgroundColorOrange);
+    height: var(--footerHeight);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
