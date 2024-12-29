@@ -1,0 +1,32 @@
+button {
+    background-color: var(--buttonGreen);
+    color: var(--textWhite);
+    width: var(--buttonWidth);
+    height: var(--buttonHeight);
+    border-radius: var(--cardRadius);
+    border: none;
+    cursor: pointer;
+}
+
+.separator {
+    background-color: var(--backgroundColorGray);
+    width: auto;
+    height: 4px;
+    margin-bottom: var(--marginMedium);
+}
+
+.toggleCartButton {
+    display: none;
+    position: fixed;
+    bottom: var(--marginMedium);
+    left: 50%;
+    transform: translateX(-50%);
+    padding: var(--paddingSmall);
+    background-color: var(--buttonGreen);
+    color: var(--textWhite);
+    border: none;
+    border-radius: var(--cardRadius);
+    font-size: var(--fontSizeSmall);
+    cursor: pointer;
+    z-index: 1000;
+}
