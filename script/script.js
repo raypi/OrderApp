@@ -2,9 +2,9 @@
 // Design schön machen
 // Trennbilder zwischen Produktkategorien
 
-let AUDIO_BING = new Audio('audio/bing.mp3');
-let AUDIO_KEYPRESS = new Audio('audio/keypress.mp3');
-let AUDIO_TRASH = new Audio('audio/trash.mp3');
+let AUDIO_BING = new Audio('assets/audio/bing.mp3');
+let AUDIO_KEYPRESS = new Audio('assets/audio/keypress.mp3');
+let AUDIO_TRASH = new Audio('assets/audio/trash.mp3');
 
 // init funktion
 function init() {
@@ -100,7 +100,7 @@ function sumInvoice() {
     });
   }
 
-  const shippingCost = total >= 39 ? 0 : 7; // Kostenlose Lieferung ab 39€
+  const shippingCost = total >= 39 ? 0 : (total !== 0 ? 7: 0); // Kostenlose Lieferung ab 39€
   const sumTotal = total + shippingCost;
   const netTotal = (sumTotal / 1.19).toFixed(2);
 
@@ -192,6 +192,5 @@ function getCartPrice(){
     button.innerHTML = `Warenkorb anzeigen [0 €]`
   } else {
     button.innerText = "Menüauswahl anzeigen";
-  }
-  
+  } 
 }

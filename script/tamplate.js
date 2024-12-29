@@ -6,7 +6,7 @@ function getMealTamplate(category, index, meal) {
                         <img 
                             class="chartBtn" 
                             id="${category}-${index}" 
-                            src="./img/plus.png" 
+                            src="./assets/button/plus.png" 
                             alt="button um dieses Gericht auszuwählen"
                             onclick="addCartItem('${category}', ${index})"
                         >
@@ -29,14 +29,14 @@ function getCartDisplayTemplate(category, index, meal) {
                         </div>
                     </div>
                     <div class="mealInChart">
-                        <img id="${category}-${index}-minus" class="chartBtn" src="./img/minus.png" alt="button für weniger gerichte" onclick="reduceMeal('${category}', ${index})">
+                        <img id="${category}-${index}-minus" class="chartBtn" src="./assets/button/minus.png" alt="button für weniger gerichte" onclick="reduceMeal('${category}', ${index})">
                         <p>${meal.amount}</p>
-                        <img id="${category}-${index}-plus" class="chartBtn" src="./img/plus.png" alt="button für mehr gerichte" onclick="addCartItem('${category}', ${index})">
+                        <img id="${category}-${index}-plus" class="chartBtn" src="./assets/button/plus.png" alt="button für mehr gerichte" onclick="addCartItem('${category}', ${index})">
                         <p>${(meal.price * meal.amount).toFixed(2)} €</p>
                         <img 
                             id="${category}-${index}-del"
                             class="chartBtn" 
-                            src="./img/trash.png" 
+                            src="./assets/button/trash.png" 
                             alt="löschen des gerichtes"
                             onclick="removeMeal('${category}', ${index})"
                         >
