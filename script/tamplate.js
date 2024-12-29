@@ -91,3 +91,18 @@ function getOrderInformationTemplate() {
         </div>
         `;
 }
+
+
+function getSmalCartTemplate(total) {
+        return`Warenkorb anzeigen [${total} €]`;        
+}
+
+
+function getSmalCartSiroTemplate() {
+    return `Warenkorb anzeigen [0 €]`;
+}
+
+
+function getMealsOverviewTemplate() {
+    return `Menüauswahl anzeigen`;
+}

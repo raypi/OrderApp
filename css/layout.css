@@ -151,6 +151,6 @@
 
 .companyData {
     margin: var( --marginMedium) var(--marginSmall) var( --marginMedium) var(--marginSmall);
-    padding-top: --paddingMedium;
+    padding-top: var(--paddingMedium);
     height: 95px;
 }
