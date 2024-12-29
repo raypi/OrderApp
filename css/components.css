@@ -30,3 +30,39 @@ button {
     cursor: pointer;
     z-index: 1000;
 }
+
+
+.imgHeader{
+    margin: var(--marginLarge);
+    height: 32px;
+    width: auto;
+}
+
+
+.cartScrollContainer {
+    max-height: 300px;
+    width: 280px;
+    overflow-y: auto;
+    border-radius: var(--borderRadiusSmal);
+}
+
+
+.chartBtn {
+    height: 16px;
+    width: 16px;
+    cursor: pointer;
+}
+
+
+.chartOrderBtn {
+    width: 300px;
+    height: 50px;
+    background-color: green;
+    border-style: solid;
+    border-color: var(--borderGray);
+    border-radius: var( --borderRadius);
+    border-width: 2px;
+    font-size: var(--fontSizeSmall);
+    font-weight: var(--fontWeightBold);
+    cursor: pointer;
+}

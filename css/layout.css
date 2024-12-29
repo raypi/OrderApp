@@ -26,4 +26,131 @@
     z-index: 1;
     width: 90%;
     height: 450px;
+    margin-left: 5%;
+}
+
+
+.maelHeader {
+    position: relative; /* ermöglicht Logo relativ zum Div zu positionieren */
+    width: 100%;
+    height: var(--headerHeight);
+}
+
+
+.mainImg {
+    object-fit: cover;
+    height: 92px;
+    width: 100%;
+}
+
+
+.mealImg {
+    object-fit: cover;
+    height: 100px;
+    width: 100%;
+    margin: 0 var(--marginSmall) 0 var(--marginSmall);
+}
+
+
+.logoDiv {
+    position: absolute; /* sorgt für Positionierung übder img */
+    top: 70%; 
+    left: 50%;
+    transform: translate(-50%, 8%); 
+}
+
+
+.logoMain {
+    width: 200px;
+    height: auto;
+    filter: invert(1); /* weiss wird zu schwarz */
+}
+
+
+.footMenu {
+    background-color: lightgray;
+    color: black;
+    font-size: 16px;
+    height: 32px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    border-style: solid;
+    border-color: lightgray;
+    border-radius: var(--borderRadius);
+    margin: 0 var(--marginSmall) var( --marginMedium) var(--marginSmall);
+}
+
+
+.mealDiv {
+    border-style: solid;
+    border-color: var(--borderGray);
+    border-radius: var(--borderRadius);
+    margin: 0 var(--marginSmall) var( --marginMedium) var(--marginSmall);
+}
+
+
+.mealNameDiv {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-right:  var(--paddingMedium);
+}
+
+
+.chart {
+    width: 100%;
+    position: relative;
+    position: sticky;
+    top: 0;
+}
+
+
+.chartHeader {
+    text-align: center;
+}
+
+
+.mealInChart {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.subtotal {
+    display: flex;
+    justify-content: space-between;
+}
+
+
+.deliverycosts {
+    display: flex;
+    justify-content: space-between;
+}
+
+
+.total {
+    display: flex;
+    justify-content: space-between;
+}
+
+
+.orderMessageDiv {
+    background-color: var(--errorRed);
+    text-align: center;
+    margin: var(--marginMedium);
+    padding: var(--paddingSmall);
+}
+
+
+.spaceBetween {
+    display: flex;
+    justify-content: space-between;
+}
+
+
+.companyData {
+    margin: var( --marginMedium) var(--marginSmall) var( --marginMedium) var(--marginSmall);
+    padding-top: 16px;
+    height: 95px;
 }

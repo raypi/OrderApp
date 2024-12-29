@@ -9,17 +9,20 @@
     --dialogBlue: blue;
     --borderGray: gray;
 
-    --headerHeight: 150px;
+    --headerHeight: 64px;
     --footerHeight: 64px;
     --buttonHeight: 32px;
     --buttonWidth: 100%;
     --cardRadius: 8px;
     --cartWidth: 300px;
+    --borderRadiusSmal: 4px;
+    --borderRadius: 8px;
 
     --paddingSmall: 8px;
     --paddingMedium: 16px;
     --marginSmall: 4px;
     --marginMedium: 8px;
+    --marginLarge: 16px;
 
     --fontSizeSmall: 16px;
     --fontSizeMedium: 18px;
@@ -46,4 +49,15 @@ footer {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+
+p {
+    margin-block-start: 0;
+    margin-block-end: 0;
+}
+
+
+h1 {
+    block-end: 8px;
 }

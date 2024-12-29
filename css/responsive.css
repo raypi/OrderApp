@@ -10,4 +10,10 @@
     .chartWrapper {
         display: none;
     }
+
+
+    .cartScrollContainer {
+        max-height: 250px;
+        width: 100%;
+    }
 }
