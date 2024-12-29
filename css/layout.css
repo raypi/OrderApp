@@ -68,15 +68,15 @@
 
 
 .footMenu {
-    background-color: lightgray;
+    background-color: var(--lightGray);
     color: black;
-    font-size: 16px;
+    font-size: var( --fontSizeSmall);
     height: 32px;
     width: 100%;
     display: flex;
     align-items: center;
     border-style: solid;
-    border-color: lightgray;
+    border-color: var(--lightGray);
     border-radius: var(--borderRadius);
     margin: 0 var(--marginSmall) var( --marginMedium) var(--marginSmall);
 }
@@ -151,6 +151,6 @@
 
 .companyData {
     margin: var( --marginMedium) var(--marginSmall) var( --marginMedium) var(--marginSmall);
-    padding-top: 16px;
+    padding-top: --paddingMedium;
     height: 95px;
 }
