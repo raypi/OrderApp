@@ -1,0 +1,29 @@
+.maelWrapper {
+    display: flex;
+}
+
+.maelWrapperSmal {
+    display: none;
+}
+
+.maelsGalerySec {
+    width: calc(100% - var(--cartWidth));
+}
+
+.maelsGalerySecDnone {
+    display: none;
+}
+
+.chartWrapper {
+    width: var(--cartWidth);
+    flex-grow: 1;
+    padding: var(--paddingMedium);
+}
+
+.chartWrapperSmal {
+    display: block;
+    position: relative;
+    z-index: 1;
+    width: 90%;
+    height: 450px;
+}
