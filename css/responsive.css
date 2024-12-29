@@ -1,0 +1,13 @@
+@media (max-width: 600px) {
+    .maelsGalerySec {
+        width: 100%;
+    }
+
+    #toggleCartButton {
+        display: block;
+    }
+
+    .chartWrapper {
+        display: none;
+    }
+}
