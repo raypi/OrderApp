@@ -1,6 +1,6 @@
 // ### ### ### A U F G A B E N : ### ### ###
 // Slider Trennbilder zwischen Produktkategorien
-// Jason Strucktur verbessern
+// Jason Struktur verbessern
 
 let AUDIO_BING = new Audio('assets/audio/bing.mp3');
 let AUDIO_KEYPRESS = new Audio('assets/audio/keypress.mp3');
