@@ -5,6 +5,7 @@
 
     #toggleCartButton {
         display: block;
+        width: 95%;
     }
 
     .chartWrapper {

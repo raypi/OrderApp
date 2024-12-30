@@ -25,7 +25,7 @@
     position: relative;
     z-index: 1;
     width: 90%;
-    height: 450px;
+    height: 600px;
     margin-left: 5%;
 }
 
@@ -48,7 +48,6 @@
     object-fit: cover;
     height: 100px;
     width: 100%;
-    margin: 0 var(--marginSmall) 0 var(--marginSmall);
 }
 
 
@@ -72,13 +71,12 @@
     color: black;
     font-size: var( --fontSizeSmall);
     height: 32px;
-    width: 100%;
+    width: auto;
     display: flex;
     align-items: center;
     border-style: solid;
     border-color: var(--lightGray);
     border-radius: var(--borderRadius);
-    margin: 0 var(--marginSmall) var( --marginMedium) var(--marginSmall);
 }
 
 
